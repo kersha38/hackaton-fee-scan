@@ -26,11 +26,16 @@ class RatesDynamo:
         payment_method = fee.payment_method
         alias = f"Fee {payment_method} {card_types[0] if len(card_types) else ''}"
 
-        for config in fee.range_configs:
+        for index, config in enumerate(fee.range_configs):
             greater_than = config.rang.fr
             fixed_amount = config.info.fixed
             variable_amount = config.info.variable
-            rates.append(vars(RateConfiguration(fixed_amount, greater_than, variable_amount)))
+            rates_dict = vars(RateConfiguration(fixed_amount, greater_than, variable_amount))
+            if index == 0:
+                rates.append(rates_dict)
+                rates.append(rates_dict)
+            else:
+                rates.append(rates_dict)
 
         self.id: str = str(uuid.uuid4())
         self.alias: str = alias
