@@ -14,7 +14,7 @@ class PDFReader:
 
     def get_columns(self, title):
         positions = self.__get_label_columns_positions(title)
-        # result: PDFQuery = self.pdf.pq('LTTextLineHorizontal:in_bbox("%s, %s, %s, %s")' % positions)
+        # result: PDFQuery = self.pdf.pq('LTTextLineHorizontal:in_bbox("%s, %s, %s, %s")' % positions) # alternative
 
         result: PDFQuery = self.pdf.pq('LTTextLineHorizontal:overlaps_bbox("%s, %s, %s, %s")' % positions)
 

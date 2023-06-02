@@ -1,6 +1,5 @@
 import uuid
 import time
-from typing import List
 from classes.rates_scan import *
 
 
@@ -10,9 +9,9 @@ def get_timestamp():
 
 class RateConfiguration:
     def __init__(self, fixed_amount, greater_than, variable_amount):
-        self.fixedAmount = fixed_amount
+        self.fixedAmount = variable_amount
         self.greaterThan = greater_than
-        self.variableAmount = variable_amount
+        self.variableAmount = fixed_amount
 
 
 class RatesDynamo:
@@ -57,5 +56,6 @@ class RatesDynamo:
         self.paymentType = "payIn" # confirmar
         self.publicMerchantId: str = mid
         self.ratesType = "2" # confirmar
-        self.taxId = "78454154565545" # confirmar
+        self.taxId = "345654327" # confirmar
+        # data hardcoded for demo porpoises.
 
