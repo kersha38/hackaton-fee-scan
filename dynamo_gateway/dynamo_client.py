@@ -21,8 +21,7 @@ def put_item(item, table_session):
 def create_rates_item(fee_list_scan: List[FeeByPaymentMethod]):
     fee_list_dynamo = []
     for fee_cell in fee_list_scan:
-        fee_dynamo = RatesDynamo(os.environ['MERCHANT_ID'], fee_cell)
-        dict_item = vars(fee_dynamo)
-        fee_list_dynamo.append(dict_item)
+        fee_dynamo = RatesDynamo(os.environ['MERCHANT_ID'], fee_cell).get_dict()
+        fee_list_dynamo.append(fee_dynamo)
 
     return fee_list_dynamo

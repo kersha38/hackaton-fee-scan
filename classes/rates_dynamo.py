@@ -13,6 +13,9 @@ class RateConfiguration:
         self.greaterThan = greater_than
         self.variableAmount = fixed_amount
 
+    def get_dict(self):
+        return vars(self)
+
 
 class RatesDynamo:
     def __init__(self, mid: str, fee: FeeByPaymentMethod):
@@ -29,7 +32,7 @@ class RatesDynamo:
             greater_than = config.rang.fr
             fixed_amount = config.info.fixed
             variable_amount = config.info.variable
-            rates_dict = vars(RateConfiguration(fixed_amount, greater_than, variable_amount))
+            rates_dict = RateConfiguration(fixed_amount, greater_than, variable_amount).get_dict()
             if index == 0:
                 rates.append(rates_dict)
                 rates.append(rates_dict)
@@ -49,13 +52,16 @@ class RatesDynamo:
         self.createdMerchant = get_timestamp()
         self.currency = "COP"
         self.description = f'Description for {alias}'
-        self.evaluatePeriod = 1 # confirmar
+        self.evaluatePeriod = 1
         self.maximumAmount = 0
         self.minimumAmount = 0
         self.paymentMethod: List[str] = [payment_method]
-        self.paymentType = "payIn" # confirmar
+        self.paymentType = "payIn"
         self.publicMerchantId: str = mid
-        self.ratesType = "2" # confirmar
-        self.taxId = "345654327" # confirmar
+        self.ratesType = "1"
+        self.taxId = "345654327"
         # data hardcoded for demo porpoises.
+
+    def get_dict(self):
+        return vars(self)
 

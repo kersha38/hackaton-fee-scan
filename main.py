@@ -19,7 +19,7 @@ def get_fee(
 
 def run():
     dynamo_session = init_dynamo()
-    reader = PDFReader("test_files/contrato2.pdf")
+    reader = PDFReader(os.environ['PDF_PATH'])
     range_columns = reader.get_columns(Titles.MONTH_TRANSACTIONS.value)
     ranges = get_ranges(range_columns, RANGE_CLEANERS)
     fees: List[FeeByPaymentMethod] = [
