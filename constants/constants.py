@@ -12,18 +12,18 @@ class Titles(Enum):
 
 
 class CardType(Enum):
-    DEBIT = "Debit"
-    CREDIT = "Credit"
+    DEBIT = "debit"
+    CREDIT = "credit"
     EMPTY = ""
 
 
 class PaymentMethod(Enum):
-    CARD = "Card"
-    Transfer = "Transfer"
+    CARD = "card"
+    Transfer = "transfer"
 
 
 # add as many cleaners as you need
 RANGE_CLEANERS = ['En adelante', 'De', '-', ' ', '–', '/', '.']
-FEE_INFO_CLEANERS = ['%', '$', 'COP']
+FEE_INFO_CLEANERS = ['%', '$', 'COP', ' ']
 RANGES_SEPARATORS = 'Hasta'
-FEE_SEPARATORS = ' + '
+FEE_SEPARATORS = '+'

@@ -78,7 +78,7 @@ def run():
 
 
 def init_dynamo():
-    table_name = 'usrv-transaction-rates' + ENV + '-configurations'
+    table_name = 'usrv-transaction-rates-' + ENV + '-configurations'
     return init_dynamo_session(table_name)
 
 

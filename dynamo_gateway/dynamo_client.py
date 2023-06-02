@@ -20,7 +20,7 @@ def put_item(item, table_session):
 def create_rates_item(fee_list_scan: List[FeeByPaymentMethod]):
     fee_list_dynamo = []
     for fee_cell in fee_list_scan:
-        fee_dynamo = RatesDynamo("123", fee_cell)
+        fee_dynamo = RatesDynamo("20000000100016497000", fee_cell)
         dict_item = vars(fee_dynamo)
         fee_list_dynamo.append(dict_item)
 

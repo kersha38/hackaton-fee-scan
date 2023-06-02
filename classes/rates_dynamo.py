@@ -30,7 +30,7 @@ class RatesDynamo:
             greater_than = config.rang.fr
             fixed_amount = config.info.fixed
             variable_amount = config.info.variable
-            rates.append(RateConfiguration(fixed_amount, greater_than, variable_amount))
+            rates.append(vars(RateConfiguration(fixed_amount, greater_than, variable_amount)))
 
         self.id: str = str(uuid.uuid4())
         self.alias: str = alias
@@ -52,5 +52,5 @@ class RatesDynamo:
         self.paymentType = "payIn" # confirmar
         self.publicMerchantId: str = mid
         self.ratesType = "2" # confirmar
-        self.taxId = "QUEMAR" # confirmar
+        self.taxId = "78454154565545" # confirmar
 

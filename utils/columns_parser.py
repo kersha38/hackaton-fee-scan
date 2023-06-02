@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 from constants.constants import RANGES_SEPARATORS, FEE_SEPARATORS
 from classes.rates_scan import *
 
@@ -31,7 +33,7 @@ def get_fee_info(columns, cleaners: [str]):
     for column in columns:
         clean = clean_column(column.text, cleaners)
         limits = clean.split(FEE_SEPARATORS)
-        current_info = FeeInfo(limits[0], limits[1])
+        current_info = FeeInfo(Decimal(limits[0]), Decimal(limits[1]))
         info.append(current_info)
     return info
 
