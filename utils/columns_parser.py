@@ -1,29 +1,5 @@
 from constants.constants import RANGES_SEPARATORS, FEE_SEPARATORS
-
-
-class Range:
-    def __init__(self, fr: int, to: int = 0):
-        self.fr: int = fr
-        self.to: int = to
-
-
-class FeeInfo:
-    def __init__(self, fixed, variable, ):
-        self.fixed: float = fixed
-        self.variable: float = variable
-
-
-class RangeConfig:
-    def __init__(self, rang: Range, info: FeeInfo):
-        self.info: FeeInfo = info
-        self.rang: Range = rang
-
-
-class Fee:
-    def __init__(self, range_configs: [RangeConfig], payment_method: str, card_type=""):
-        self.range_configs: [RangeConfig] = range_configs
-        self.card_type: str = card_type
-        self.payment_method: str = payment_method
+from classes.rates_scan import *
 
 
 def clean_column(column: str, cleaners: [str]):
@@ -66,4 +42,4 @@ def define_fee(fee_info: [FeeInfo], ranges: [Range], payment_method: str, card_t
         range_config = RangeConfig(ranges[i], info)
         range_configs.append(range_config)
 
-    return Fee(range_configs, payment_method, card_type)
+    return FeeByPaymentMethod(range_configs, payment_method, card_type)
